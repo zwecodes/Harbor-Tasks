@@ -1,0 +1,6 @@
+# Copy to terraform.tfvars and edit. Do not commit terraform.tfvars.
+aws_region         = "changeme"
+project_name       = "harbor-tasks"
+environment        = "dev"
+app_instance_type  = "t3.micro"
+app_instance_count = 1

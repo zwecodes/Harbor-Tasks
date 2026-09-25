@@ -1,0 +1,25 @@
+# Python
+.venv/
+app/data/*.json
+__pycache__/
+*.py[cod]
+.pytest_cache/
+*.egg-info/
+
+# Terraform
+terraform/.terraform/
+terraform/*.tfstate
+terraform/*.tfstate.*
+terraform/*.tfvars
+!terraform/terraform.tfvars.example
+terraform/crash.log
+terraform/override.tf
+terraform/override.tf.json
+terraform/*_override.tf
+terraform/.terraform.tfstate.lock.info
+
+# OS / editor
+.DS_Store
+.idea/
+.vscode/
+*.swp

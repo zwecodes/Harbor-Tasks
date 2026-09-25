@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Harbor Tasks</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}" />
+  </head>
+  <body>
+    <div class="shell">
+      <header class="top">
+        <div>
+          <p class="eyebrow">Private-subnet task tracker</p>
+          <h1>Harbor Tasks</h1>
+        </div>
+        <div class="meta" id="instance-meta">
+          <span class="pill">AZ <strong id="az">{{ info.availability_zone }}</strong></span>
+          <span class="pill">Box <strong id="iid">{{ info.instance_id }}</strong></span>
+        </div>
+      </header>
+
+      <p class="lede">
+        You reached this page through a public load balancer. The EC2 instance
+        that rendered it has no public IP — the harbor stays behind the breakwater.
+      </p>
+
+      <section class="composer" aria-labelledby="add-heading">
+        <h2 id="add-heading">Add a task</h2>
+        <form id="task-form">
+          <label>
+            Title
+            <input id="title" name="title" maxlength="120" required placeholder="Review VPC route tables" />
+          </label>
+          <label>
+            Notes <span class="optional">(optional)</span>
+            <textarea id="notes" name="notes" maxlength="1000" rows="2" placeholder="Public subnets route to the IGW; app subnets route to NAT."></textarea>
+          </label>
+          <div class="row">
+            <button type="submit">Save task</button>
+            <p class="form-status" id="form-status" role="status"></p>
+          </div>
+        </form>
+      </section>
+
+      <section aria-labelledby="list-heading">
+        <div class="list-head">
+          <h2 id="list-heading">Board</h2>
+          <p id="count" class="muted"></p>
+        </div>
+        <p id="list-error" class="error" hidden></p>
+        <ul id="task-list" class="board"></ul>
+        <p id="empty" class="empty" hidden>
+          No tasks yet. Add one — it is stored as JSON on this instance until you add a database.
+        </p>
+      </section>
+
+      <footer>
+        <p>
+          Health check used by the ALB:
+          <a href="/health">/health</a>
+          · JSON API:
+          <a href="/api/tasks">/api/tasks</a>
+        </p>
+        <p class="muted">
+          Storage: <code id="storage">{{ info.storage }}</code>
+          · Host: <code>{{ info.hostname }}</code>
+        </p>
+      </footer>
+    </div>
+    <script src="{{ url_for('static', filename='app.js') }}"></script>
+  </body>
+</html>

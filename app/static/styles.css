@@ -1,0 +1,261 @@
+:root {
+  --ink: #12212b;
+  --paper: #f3ead8;
+  --paper-2: #efe3cc;
+  --sea: #1c4b56;
+  --sea-deep: #0e2c34;
+  --buoy: #d45b27;
+  --buoy-dark: #b3471b;
+  --foam: #8fb8b0;
+  --line: rgba(18, 33, 43, 0.12);
+  --shadow: 0 18px 40px rgba(14, 44, 52, 0.12);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  min-height: 100%;
+}
+
+body {
+  font-family: "Iowan Old Style", "Palatino Linotype", Palatino, "Times New Roman", serif;
+  color: var(--ink);
+  background:
+    radial-gradient(1200px 500px at 10% -10%, rgba(143, 184, 176, 0.35), transparent 55%),
+    linear-gradient(180deg, #d7ece7 0%, var(--paper) 38%, #e7d7b8 100%);
+}
+
+.shell {
+  width: min(760px, calc(100% - 32px));
+  margin: 32px auto 64px;
+}
+
+.top {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  align-items: flex-end;
+  flex-wrap: wrap;
+}
+
+.eyebrow {
+  margin: 0 0 4px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  font-size: 0.72rem;
+  font-family: "Segoe UI", system-ui, sans-serif;
+  color: var(--sea);
+}
+
+h1,
+h2 {
+  margin: 0;
+  font-weight: 700;
+}
+
+h1 {
+  font-size: clamp(2rem, 5vw, 3.1rem);
+  letter-spacing: -0.03em;
+}
+
+h2 {
+  font-size: 1.15rem;
+}
+
+.lede {
+  margin: 18px 0 28px;
+  max-width: 46rem;
+  line-height: 1.45;
+}
+
+.meta {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.pill {
+  font-family: "Segoe UI", system-ui, sans-serif;
+  font-size: 0.78rem;
+  background: var(--sea-deep);
+  color: var(--paper);
+  padding: 8px 10px;
+  border-radius: 999px;
+}
+
+.composer,
+.board,
+.empty {
+  background: var(--paper-2);
+  border: 1px solid var(--line);
+  box-shadow: var(--shadow);
+}
+
+.composer {
+  padding: 20px;
+  border-radius: 18px;
+  margin-bottom: 28px;
+}
+
+label {
+  display: block;
+  margin: 12px 0;
+  font-family: "Segoe UI", system-ui, sans-serif;
+  font-size: 0.85rem;
+}
+
+.optional {
+  color: #5b6b73;
+  font-weight: 400;
+}
+
+input,
+textarea,
+button {
+  font: inherit;
+}
+
+input,
+textarea {
+  width: 100%;
+  margin-top: 6px;
+  padding: 10px 12px;
+  border-radius: 10px;
+  border: 1px solid var(--line);
+  background: var(--paper);
+  color: var(--ink);
+}
+
+.row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+button {
+  font-family: "Segoe UI", system-ui, sans-serif;
+  background: var(--buoy);
+  color: white;
+  border: 0;
+  border-radius: 999px;
+  padding: 10px 16px;
+  cursor: pointer;
+}
+
+button:hover {
+  background: var(--buoy-dark);
+}
+
+button.ghost {
+  background: transparent;
+  color: var(--sea);
+  border: 1px solid var(--line);
+}
+
+button.danger {
+  background: transparent;
+  color: var(--buoy-dark);
+}
+
+.form-status {
+  margin: 0;
+  font-family: "Segoe UI", system-ui, sans-serif;
+  font-size: 0.85rem;
+}
+
+.list-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-bottom: 10px;
+}
+
+.muted {
+  color: #5b6b73;
+  font-family: "Segoe UI", system-ui, sans-serif;
+  font-size: 0.85rem;
+}
+
+.board {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  border-radius: 18px;
+  overflow: hidden;
+}
+
+.board li {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  gap: 12px;
+  align-items: start;
+  padding: 14px 16px;
+  border-bottom: 1px solid var(--line);
+}
+
+.board li:last-child {
+  border-bottom: 0;
+}
+
+.board h3 {
+  margin: 0 0 4px;
+  font-size: 1.05rem;
+}
+
+.board p {
+  margin: 0;
+  font-family: "Segoe UI", system-ui, sans-serif;
+  font-size: 0.9rem;
+  color: #33444c;
+}
+
+.done h3 {
+  text-decoration: line-through;
+  color: #6a7a82;
+}
+
+.actions {
+  display: flex;
+  gap: 6px;
+}
+
+.empty {
+  padding: 28px 18px;
+  border-radius: 18px;
+  text-align: center;
+}
+
+.error {
+  color: var(--buoy-dark);
+  font-family: "Segoe UI", system-ui, sans-serif;
+}
+
+footer {
+  margin-top: 28px;
+  font-family: "Segoe UI", system-ui, sans-serif;
+  font-size: 0.9rem;
+}
+
+footer a {
+  color: var(--sea);
+}
+
+@media (max-width: 640px) {
+  .shell {
+    margin-top: 18px;
+  }
+
+  .board li {
+    grid-template-columns: auto 1fr;
+  }
+
+  .actions {
+    grid-column: 1 / -1;
+    justify-content: flex-end;
+  }
+}
