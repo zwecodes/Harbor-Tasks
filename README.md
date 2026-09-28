@@ -146,3 +146,9 @@ terraform/     VPC, SG, ALB, EC2, IAM, CloudWatch
 docs/          Learning brief, architecture, AWS concepts, path
 DESIGN.md      Requirements, choices, tradeoffs
 ```
+
+---
+
+## Personal notes
+
+Interview rehearsal notes stay **off this repo**. If you keep a local study guide, copy it here as `interview-prep.local.md` (listed in `.gitignore`). Do not commit that file.

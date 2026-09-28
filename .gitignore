@@ -23,3 +23,6 @@ terraform/.terraform.tfstate.lock.info
 .idea/
 .vscode/
 *.swp
+
+# Personal interview notes (keep off GitHub — copy locally, do not commit)
+interview-prep.local.md
